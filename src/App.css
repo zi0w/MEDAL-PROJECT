@@ -24,7 +24,7 @@ body {
   flex-direction: row;
   gap: 8px;
   align-items: end;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   width: 1000px;
   justify-content: space-between;
 }
@@ -44,12 +44,39 @@ input {
   padding: 10px;
   border: 1px solid #bebebe;
   border-radius: 3px;
+  min-width: 150px;
 }
 
 .buttons {
   display: flex;
   gap: 8px;
   height: 37px;
+}
+
+.submit-button {
+  background-color: #fecb00;
+  border: 1px solid #fecb00;
+  border-radius: 3px;
+  width: 70px;
+  font-weight: 700;
+}
+
+.update-button {
+  background-color: #fecb00;
+  border: 1px solid #fecb00;
+  border-radius: 3px;
+  width: 70px;
+  font-weight: 700;
+}
+
+.delete-button {
+  background-color: #dc3543;
+  border: 1px solid #dc3543;
+  border-radius: 3px;
+  color: #ffffff;
+  font-weight: 700;
+  width: 50px;
+  height: 30px;
 }
 
 .table {
