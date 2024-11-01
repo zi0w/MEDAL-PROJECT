@@ -23,15 +23,29 @@ const App = () => {
       bronze: Number(bronze),
     };
 
-    setResults([...results, newresults]);
-
     setCountry("");
     setGold(0);
     setSilver(0);
     setBronze(0);
+
+    if (results.some((result) => result.country === country)) {
+      alert("이미 등록된 국가입니다.");
+      return;
+    }
+    setResults([...results, newresults]);
   };
 
   const updateResultHandler = (country) => {
+    setCountry("");
+    setGold(0);
+    setSilver(0);
+    setBronze(0);
+
+    if (!results.some((result) => result.country === country)) {
+      alert("등록되지 않은 국가입니다.");
+      return;
+    }
+
     const updateResult = results.map((result) => {
       if (result.country === country) {
         return {
