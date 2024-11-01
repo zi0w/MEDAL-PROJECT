@@ -1,8 +1,28 @@
+import { useState } from "react";
+
 const MedalList = ({ results, deleteResultHandler }) => {
+  const [sortBy, setSortBy] = useState("gold");
+
+  const sortedResults = [...results].sort((a, b) => {
+    if (sortBy === "gold") {
+      return b.gold - a.gold;
+    } else if (sortBy === "total") {
+      return b.gold + b.silver + b.bronze - (a.gold + a.silver + a.bronze);
+    }
+  });
+
   return (
     <div>
       {results.length > 0 ? (
         <div className="table-container">
+          <div className="sort-container">
+            <button onClick={() => setSortBy("gold")} className="gold-sort">
+              금메달 기준 정렬
+            </button>
+            <button onClick={() => setSortBy("total")} className="total-sort">
+              총메달 기준 정렬
+            </button>
+          </div>
           <table className="table">
             <thead>
               <tr>
@@ -14,28 +34,24 @@ const MedalList = ({ results, deleteResultHandler }) => {
               </tr>
             </thead>
             <tbody>
-              {results
-                .sort((a, b) => {
-                  return b.gold - a.gold;
-                })
-                .map(({ id, country, gold, silver, bronze }) => (
-                  <tr key={id}>
-                    <td>{country}</td>
-                    <td>{gold}</td>
-                    <td>{silver}</td>
-                    <td>{bronze}</td>
-                    <td>
-                      <button
-                        className="delete-button"
-                        onClick={() => {
-                          deleteResultHandler(id);
-                        }}
-                      >
-                        삭제
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+              {sortedResults.map(({ id, country, gold, silver, bronze }) => (
+                <tr key={id}>
+                  <td>{country}</td>
+                  <td>{gold}</td>
+                  <td>{silver}</td>
+                  <td>{bronze}</td>
+                  <td>
+                    <button
+                      className="delete-button"
+                      onClick={() => {
+                        deleteResultHandler(id);
+                      }}
+                    >
+                      삭제
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

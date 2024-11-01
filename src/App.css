@@ -24,7 +24,7 @@ body {
   flex-direction: row;
   gap: 8px;
   align-items: end;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   width: 1000px;
   justify-content: space-between;
 }
@@ -59,6 +59,7 @@ input {
   border-radius: 3px;
   width: 70px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .update-button {
@@ -67,6 +68,7 @@ input {
   border-radius: 3px;
   width: 70px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .delete-button {
@@ -77,6 +79,7 @@ input {
   font-weight: 700;
   width: 50px;
   height: 30px;
+  cursor: pointer;
 }
 
 .table {
@@ -100,4 +103,29 @@ th,
 td {
   border-bottom: 1px solid #bebebe;
   padding: 10px;
+}
+
+.sort-container {
+  display: flex;
+  margin-bottom: 15px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.gold-sort {
+  background: transparent;
+  border: 1px solid #bebebe;
+  border-radius: 3px;
+  padding: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.total-sort {
+  background: transparent;
+  border: 1px solid #bebebe;
+  border-radius: 3px;
+  padding: 6px;
+  font-weight: 500;
+  cursor: pointer;
 }
